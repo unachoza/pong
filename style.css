@@ -6,7 +6,7 @@ body {
   font-family: 'Courier New', Courier, monospace;
 }
 .navbar {
-  padding: 10px 20px;
+  padding: 15px 50px;
   display: flex;
   justify-content: space-between;
   color: white;
@@ -30,11 +30,93 @@ a {
 }
 
 a:hover {
-  color: black;
+  color: rgb(7, 248, 87);
   text-decoration: none;
   cursor: pointer;
   transition: ease-in 0.3s;
   transform: scale(1.05);
+}
+/* Modal */
+.modal-container {
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+}
+
+.show-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.modal {
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  max-width: 95%;
+  width: 500px;
+  border-radius: 10px;
+  animation: modalopen 1s;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.close-icon {
+  float: right;
+  color: white;
+  font-size: 24px;
+  position: relative;
+  top: 13px;
+  right: 13px;
+  cursor: pointer;
+}
+
+.modal-header {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+}
+
+h3 {
+  margin: 5px;
+  text-align: center;
+  font-size: 25px;
+}
+
+.modal-content {
+  padding: 20px;
+  background: whitesmoke;
+}
+.form-group {
+  height: 55px;
+}
+
+.form-input {
+  width: 75%;
+  padding: 10px;
+  font-size: 20px;
+  margin: 0 auto;
+  border-radius: 10px;
+  display: block;
+  outline: none;
+}
+
+.form-label {
+  color: var(--primary-color);
+  display: block;
 }
 
 canvas {
@@ -44,7 +126,7 @@ canvas {
 
 .game-over-container {
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 500px;

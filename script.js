@@ -48,7 +48,7 @@ let isGameOver = true;
 let isNewGame = true;
 
 // Render Everything on Canvas
-function renderCanvas() {
+const renderCanvas = () => {
   // Canvas Background
   context.fillStyle = 'black';
   context.fillRect(0, 0, width, height);
@@ -80,36 +80,39 @@ function renderCanvas() {
   context.font = '32px Courier New';
   context.fillText(playerScore, 20, canvas.height / 2 + 50);
   context.fillText(computerScore, 20, canvas.height / 2 - 30);
-}
+};
+
+//Enter User Name
+const enterUserName = (e) => {};
 
 // Create Canvas Element
-function createCanvas() {
+const createCanvas = () => {
   canvas.width = width;
   canvas.height = height;
   body.appendChild(canvas);
   renderCanvas();
-}
+};
 
 // Reset Ball to Center
-function ballReset() {
+const ballReset = () => {
   ballX = width / 2;
   ballY = height / 2;
   speedY = -3;
   paddleContact = false;
-}
+};
 
 // Adjust Ball Movement
-function ballMove() {
+const ballMove = () => {
   // Vertical Speed
   ballY += -speedY;
   // Horizontal Speed
   if (playerMoved && paddleContact) {
     ballX += speedX;
   }
-}
+};
 
 // Determine What Ball Bounces Off, Score Points, Reset Ball
-function ballBoundaries() {
+const ballBoundaries = () => {
   // Bounce off Left Wall
   if (ballX < 0 && speedX < 0) {
     speedX = -speedX;
@@ -158,10 +161,10 @@ function ballBoundaries() {
       playerScore++;
     }
   }
-}
+};
 
 // Computer Movement
-function computerAI() {
+const computerAI = () => {
   if (playerMoved) {
     if (paddleTopX + paddleDiff < ballX) {
       paddleTopX += computerSpeed;
@@ -169,9 +172,9 @@ function computerAI() {
       paddleTopX -= computerSpeed;
     }
   }
-}
+};
 
-function showGameOverEl(winner) {
+const showGameOverEl = (winner) => {
   // Hide Canvas
   canvas.hidden = true;
   // Container
@@ -187,20 +190,20 @@ function showGameOverEl(winner) {
   // Append
   gameOverEl.append(title, playAgainBtn);
   body.appendChild(gameOverEl);
-}
+};
 
 // Check If One Player Has Winning Score, If They Do, End Game
-function gameOver() {
+const gameOver = () => {
   if (playerScore === winningScore || computerScore === winningScore) {
     isGameOver = true;
     // Set Winner
     const winner = playerScore === winningScore ? 'Player 1' : 'Computer';
     showGameOverEl(winner);
   }
-}
+};
 
 // Called Every Frame
-function animate() {
+const animate = () => {
   renderCanvas();
   ballMove();
   ballBoundaries();
@@ -209,10 +212,10 @@ function animate() {
   if (!isGameOver) {
     window.requestAnimationFrame(animate);
   }
-}
+};
 
 // Start Game, Reset Everything
-function startGame() {
+const startGame = () => {
   if (isGameOver && !isNewGame) {
     body.removeChild(gameOverEl);
     canvas.hidden = false;
@@ -237,7 +240,7 @@ function startGame() {
     // Hide Cursor
     canvas.style.cursor = 'none';
   });
-}
+};
 
 // On Load
-startGame();
+// startGame();

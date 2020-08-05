@@ -32,10 +32,13 @@
       <div class="modal">
         <div class="modal-header">
           <h3>Enter User Name</h3>
-          <div class="form-group">
-            <label class="form-label" for="user-name"></label>
-            <input class="form-input" type="text" id="user-name" />
-          </div>
+          <form id="user-form">
+            <div class="form-group">
+              <label class="form-label" for="user-name"></label>
+              <input class="form-input" type="text" id="user-name" autocomplete="off" />
+              <button type="submit" class="form-button">Save</button>
+            </div>
+          </form>
           <i class="fas fa-times close-icon" id="close-modal"></i>
         </div>
       </div>

@@ -1,3 +1,7 @@
+//User
+const userNameElement = document.getElementById('user-name');
+const userForm = document.getElementById('user-form');
+let userName;
 // Canvas
 const { body } = document;
 const canvas = document.createElement('canvas');
@@ -83,8 +87,14 @@ const renderCanvas = () => {
 };
 
 //Enter User Name
-const enterUserName = (e) => {};
+const enterUserName = (e) => {
+  e.preventDefault();
+  userName = userNameElement.value;
+  console.log(userName);
+  modal.classList.remove('show-modal');
+};
 
+userForm.addEventListener('submit', enterUserName);
 // Create Canvas Element
 const createCanvas = () => {
   canvas.width = width;

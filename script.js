@@ -1,6 +1,7 @@
 //User
 const userNameElement = document.getElementById('user-name');
 const userForm = document.getElementById('user-form');
+const user = document.getElementById('user');
 let userName;
 // Canvas
 const { body } = document;
@@ -92,6 +93,9 @@ const enterUserName = (e) => {
   userName = userNameElement.value;
   console.log(userName);
   modal.classList.remove('show-modal');
+  user.innerHTML = userName;
+
+  startGame();
 };
 
 userForm.addEventListener('submit', enterUserName);

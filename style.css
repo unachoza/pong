@@ -125,6 +125,17 @@ h3 {
   color: var(--primary-color);
   display: block;
 }
+.user-names-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  height: 100vh;
+}
+.player {
+  font: size 40px;
+  color: white;
+}
 
 canvas {
   margin-top: 70px;
